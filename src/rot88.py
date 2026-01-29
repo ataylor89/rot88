@@ -5,9 +5,9 @@ import argparse
 def rot88(message):
     result = ''
     for character in message:
-        code = ord(character)
-        code = (code + 0x88000) % 0x110000
-        result += chr(code)
+        codepoint = ord(character)
+        codepoint = (codepoint + 0x88000) % 0x110000
+        result += chr(codepoint)
     return result
 
 if __name__ == '__main__':
