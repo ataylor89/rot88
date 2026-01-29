@@ -6,8 +6,7 @@ class TestRot88(TestCase):
     def process_file(self, path):
         with open(path, 'r') as file:
             message = file.read()
-        ciphertext = rot88(message)
-        assert rot88(ciphertext) == message
+        assert rot88(rot88(message)) == message
 
     def test_message(self):
         self.process_file('tests/test_data/message.txt')
