@@ -1,5 +1,5 @@
 from rot88 import rot88
-from settings import test_data_path
+from tests import test_data_path
 from unittest import TestCase
 
 class TestRot88(TestCase):
