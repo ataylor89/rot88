@@ -1,5 +1,6 @@
 from tests import project_root
-from rot88 import rot88
+from encrypt import encrypt
+from decrypt import decrypt
 from unittest import TestCase
 
 class TestRot88(TestCase):
@@ -22,17 +23,17 @@ class TestRot88(TestCase):
         with open(spanish_path, 'r') as file:
             cls.spanish = file.read()
 
-    def encrypt_twice(self, content):
-        assert rot88(rot88(content)) == content
+    def encrypt_decrypt(self, content):
+        assert decrypt(encrypt(content)) == content
 
     def test_message(self):
-        self.encrypt_twice(self.message)
+        self.encrypt_decrypt(self.message)
 
     def test_equations(self):
-        self.encrypt_twice(self.equations)
+        self.encrypt_decrypt(self.equations)
 
     def test_pirsquared(self):
-        self.encrypt_twice(self.pirsquared)
+        self.encrypt_decrypt(self.pirsquared)
 
     def test_spanish(self):
-        self.encrypt_twice(self.spanish)
+        self.encrypt_decrypt(self.spanish)
